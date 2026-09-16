@@ -1,0 +1,26 @@
+--Session #1
+
+BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+SELECT sum(rating)
+FROM pizzeria;
+
+SELECT sum(rating)
+FROM pizzeria;
+
+COMMIT;
+
+SELECT sum(rating)
+FROM pizzeria;
+
+--Session #2
+
+BEGIN TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+INSERT INTO pizzeria
+VALUES (10,'Kazan Pizza', 5);
+
+COMMIT;
+
+SELECT sum(rating)
+FROM pizzeria;
